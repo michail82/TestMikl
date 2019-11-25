@@ -1,27 +1,26 @@
-a = int( input() )
-b = int( input() )
-c = int( input() )
+a1 = int( input() )
+b1 = int( input() )
+c1 = int( input() )
 x = int( input() )
 y = int( input() )
 z = int( input() )
-m1 = int( a // x ) * int( b // y ) * int( c // z )
-m2 = int( a // x ) * int( b // z ) * int( c // y )
-m3 = int( a // y ) * int( b // a ) * int( c // z )
-m4 = int( a // y ) * int( b // z ) * int( c // x )
-m5 = int( a // z ) * int( b // a ) * int( c // y )
-m6 = int( a // z ) * int( b // y ) * int( c // x )
-if a >= x and b >= y and c >= z:
-    if m1 > m2 and m1 > m3 and m1 > m4 and m1 > m5 and m1 > m6:
-        print( m1 )
-    elif m2 > m3 and m2 > m4 and m2 > m5 and m2 > m6:
-        print( m2 )
-    elif m3 > m4 and m3 > m5 and m3 > m6:
-        print( m3 )
-    elif m4 > m5 and m4 > m6:
-        print( m4 )
-    elif m5 > m6:
-        print( m5 )
-    else:
-        print( m6 )
+d1 = (a1 // x) * (b1 // y) * (c1 // z)
+d2 = (a1 // x) * (c1 // y) * (b1 // z)
+d3 = (b1 // x) * (c1 // y) * (a1 // z)
+d4 = (b1 // x) * (a1 // y) * (c1 // z)
+d5 = (c1 // x) * (a1 // y) * (b1 // z)
+d6 = (c1 // x) * (b1 // y) * (a1 // z)
+
+if d1 >= d2:
+    d2 = d1
+if d3 >= d4:
+    d4 = d2
+if d5 >= d6:
+    d6 = d5
+
+if d2 >= d4 and d2 >= d6:
+    print( d2 )
+elif d4 >= d6:
+    print( d4 )
 else:
-    print( 0 )
+    print( d6 )
